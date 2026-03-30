@@ -17,7 +17,7 @@ builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || builder.Configuration.GetValue<bool>("EnableOpenApi"))
 {
     app.MapOpenApi();
 }
